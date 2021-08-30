@@ -1,5 +1,6 @@
 package edu.wctc.dice;
 
+import edu.wctc.dice.iface.DiceRoller;
 import edu.wctc.dice.iface.GameInput;
 import edu.wctc.dice.iface.GameOutput;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,10 +11,15 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
+
+
 @Component
 public class DiceGame {
     private GameInput in;
     private GameOutput out;
+    private DiceRoller diceRoller;
+
+
 
     private List<Player> players = new ArrayList<>();
     private int currentRound = 1;
@@ -128,10 +134,17 @@ public class DiceGame {
 
         return even;
     }
-
-    private int rollDie() {
+    public static int rollDie() {
         Random random = new Random();
         return random.nextInt(6) + 1;
 //        return dieRoller.rollDie();
     }
+
+
+
+
+    //Modified DiceGame
+    //DiceGame has been modified to receive one DieRoller bean via dependency injection
+
+
 }
