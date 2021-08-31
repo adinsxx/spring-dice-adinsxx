@@ -28,12 +28,12 @@ public class AppConfig {
 
     //Two beans
     //Two @Component classes that implement the interface
-    @Bean
+    @Bean(name="d12")
     public DiceRoller dieRoller1(){
         return new rollDodecahedron();
     }
 
-    @Bean
+    @Bean(name="d20")
     public DiceRoller dieRoller2(){
         return new rollIcosahedron();
     }

@@ -4,6 +4,12 @@ package edu.wctc.dice.iface;
 //Interface defines a method to generate a random number
 
 
+import java.util.Random;
+
 public interface DiceRoller {
-    int diceRolled(int roll);
+    default int diceRolled(int roll){
+        Random random = new Random();
+        roll = random.nextInt(6) + 1;
+        return roll;
+    };
 }
